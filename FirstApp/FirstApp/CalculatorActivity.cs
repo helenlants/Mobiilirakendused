@@ -28,7 +28,7 @@ namespace FirstApp
 
             _firstField = FindViewById<EditText>(Resource.Id.firstField);
             _secondField = FindViewById<EditText>(Resource.Id.secondField);
-            _answerText = FindViewById<EditText>(Resource.Id.answerText);
+            _answerText = FindViewById<TextView>(Resource.Id.answerText);
             var calcButton = FindViewById<Button>(Resource.Id.vlvlvlv);
             calcButton.Click += calcButton_Click;
         }
