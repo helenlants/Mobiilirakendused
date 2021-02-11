@@ -3805,10 +3805,16 @@ namespace FirstApp
 			public const int vlvlvlv = 2131230915;
 			
 			// aapt resource value: 0x7F0800C4
-			public const int withText = 2131230916;
+			public const int webButton = 2131230916;
 			
 			// aapt resource value: 0x7F0800C5
-			public const int wrap_content = 2131230917;
+			public const int webView1 = 2131230917;
+			
+			// aapt resource value: 0x7F0800C6
+			public const int withText = 2131230918;
+			
+			// aapt resource value: 0x7F0800C7
+			public const int wrap_content = 2131230919;
 			
 			static Id()
 			{
@@ -4079,6 +4085,9 @@ namespace FirstApp
 			
 			// aapt resource value: 0x7F0B0039
 			public const int support_simple_spinner_dropdown_item = 2131427385;
+			
+			// aapt resource value: 0x7F0B003A
+			public const int web_layout = 2131427386;
 			
 			static Layout()
 			{
