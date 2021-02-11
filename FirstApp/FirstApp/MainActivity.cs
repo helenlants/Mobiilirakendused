@@ -39,7 +39,7 @@ namespace FirstApp
             webButton.Click += delegate
             {
                 Intent intent = new Intent(this, typeof(WebActivity));
-                intent.PutExtra("address", "https://m.delfi.ee/");
+                intent.PutExtra(Constants.AddressKey, Constants.DefaultUrlToLoad);
                 StartActivity(intent);
             };
 
