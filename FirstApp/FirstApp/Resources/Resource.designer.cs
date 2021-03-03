@@ -4296,7 +4296,7 @@ namespace FirstApp
 			public const int status_bar_notification_info_overflow = 2131558456;
 			
 			// aapt resource value: 0x7F0D0039
-			public const int webview = 2131558457;
+			public const int webview_button = 2131558457;
 			
 			static String()
 			{
