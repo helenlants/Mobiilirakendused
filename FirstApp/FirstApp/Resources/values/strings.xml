@@ -4,4 +4,5 @@
   <string name="calculator_button">Open Calculator</string>
   <string name="webview_button">Open Webview</string>
   <string name="mapview_button">Open Map</string>
+  <string name="tolist_button">Open List Activity</string>
 </resources>

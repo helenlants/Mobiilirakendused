@@ -24,6 +24,7 @@ namespace FirstApp
             var calculatorButton = FindViewById<Button>(Resource.Id.calculatorButton);
             var webButton = FindViewById<Button>(Resource.Id.webButton);
             var mapButton = FindViewById<Button>(Resource.Id.mapButton);
+            var toListActivityButton = FindViewById<Button>(Resource.Id.toListButton);
 
             var device = DeviceInfo.Model;
             textView2.Text = device.ToString();
@@ -54,7 +55,11 @@ namespace FirstApp
             mapButton.Click += delegate
             {
                 Intent intent = new Intent(this, typeof(mapActivity));
-                intent.PutExtra("location", mapActivity.LocationService);
+                StartActivity(intent);
+            };
+            toListActivityButton.Click += delegate
+            {
+                Intent intent = new Intent(this, typeof(SampleListActivity)); //activity nimi siia
                 StartActivity(intent);
             };
 
