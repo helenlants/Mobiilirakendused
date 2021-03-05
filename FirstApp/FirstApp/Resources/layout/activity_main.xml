@@ -30,4 +30,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/webButton" />
+    <Button
+        android:text="@string/mapview_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mapButton" />
+    <TextView
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/textView2" />
 </LinearLayout>
