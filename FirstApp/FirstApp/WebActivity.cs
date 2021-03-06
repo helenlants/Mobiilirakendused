@@ -22,7 +22,7 @@ namespace FirstApp
             SetContentView(Resource.Layout.web_layout);
 
             // Create your application here
-            var address = Intent.GetStringExtra("address");
+            var address = Intent.GetStringExtra(Constants.AddressKey);
             _webView = FindViewById<WebView>(Resource.Id.webView1);
             _webView.Settings.JavaScriptEnabled = true;
             _webView.SetWebViewClient(new SimpleWebViewClient());
