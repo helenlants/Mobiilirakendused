@@ -25,6 +25,7 @@ namespace FirstApp
             var webButton = FindViewById<Button>(Resource.Id.webButton);
             var mapButton = FindViewById<Button>(Resource.Id.mapButton);
             var toListActivityButton = FindViewById<Button>(Resource.Id.toListButton);
+ 
 
             var device = DeviceInfo.Model;
             textView2.Text = device.ToString();
@@ -62,6 +63,7 @@ namespace FirstApp
                 Intent intent = new Intent(this, typeof(SampleListActivity)); //activity nimi siia
                 StartActivity(intent);
             };
+
 
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

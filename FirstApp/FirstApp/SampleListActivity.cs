@@ -16,12 +16,17 @@ namespace FirstApp
     public class SampleListActivity : Activity //muutsime tüübi ListActivityks alguses ja siis tagasi Activityks, et saaks disaini kasutada. activity ei tea midagi listidest, seega ei saa ka adapterit kasutada ja tuleb disaini fail teha
     {
         List<Car> items;
+        
+        
+        //var webButton = FindViewById<Button>(Resource.Id.webButton);
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.simplelist_layout);
+            
 
             var listView = FindViewById<ListView>(Resource.Id.listView1);
+            //var imageView = FindViewById<ImageView>(Resource.Id.carImageView);
             items = new List<Car> 
             { 
                 new Car {Manufacturer="Ford", Model = "Focus", KW =100, Image = Resource.Drawable.ford },
@@ -51,9 +56,17 @@ namespace FirstApp
                 var car = items[args.Position].Manufacturer;
                 Toast.MakeText(this, car, ToastLength.Long).Show(); //toast on pop-up message
 
+                //kodutöö osa
+
+                int manufacturerLogo = items[args.Position].Image;
+                string exportImage = Convert.ToString(manufacturerLogo);
+                Intent intent = new Intent(this, typeof(CarImageClickActivity));
+                intent.PutExtra("logo", exportImage);
+                StartActivity(intent);
+
             };
 
-            // Create your application here
+
         }
     }
 }
