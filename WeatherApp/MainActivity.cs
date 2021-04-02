@@ -4,6 +4,7 @@ using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
 using System.Net.Http;
+using WeatherApp.Services;
 
 namespace WeatherApp
 {
@@ -17,10 +18,10 @@ namespace WeatherApp
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
 
-            var apiKey = "b051ac84c077d3e777344e7ac8b5af54";
+            var dataService = new RemoteDataService();
+            var data = await dataService.GetCityWeather("tallinn");
+            System.Diagnostics.Debug.WriteLine(data.name); //1h pooleli
 
-            var client = new HttpClient();
-            var response = await client.GetStringAsync($"https://api.openweathermap.org/data/2.5/weather?q=tallinn&appid={apiKey}");
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
