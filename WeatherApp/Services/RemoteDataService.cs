@@ -21,11 +21,23 @@ namespace WeatherApp.Services
         public async Task<WeatherInfo> GetCityWeather(string city)
         {
             var client = new HttpClient();
-            var response = await client.GetStringAsync($"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}");
+            var response = await client.GetStringAsync($"https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={apiKey}");
 
             var data = JsonConvert.DeserializeObject<WeatherInfo>(response);
             return data;
         }
-
+        public async Task<byte[]> GetImageFromUrl(string url)
+        {
+            using (var client = new HttpClient())
+            {
+                var msg = await client.GetAsync(url);
+                if (msg.IsSuccessStatusCode)
+                {
+                    var byteArray = await msg.Content.ReadAsByteArrayAsync();
+                    return byteArray;
+                }
+            }
+            return null;
+        }
     }
 }

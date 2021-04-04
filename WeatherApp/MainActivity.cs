@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Widget;
 using System.Net.Http;
 using WeatherApp.Services;
+using Android.Graphics;
 
 namespace WeatherApp
 {
@@ -17,10 +18,23 @@ namespace WeatherApp
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
-
             var dataService = new RemoteDataService();
-            var data = await dataService.GetCityWeather("tallinn");
-            System.Diagnostics.Debug.WriteLine(data.name); //1h pooleli
+
+            var cityEditText = FindViewById<EditText>(Resource.Id.cityTextView);
+            var searchButton = FindViewById<Button>(Resource.Id.searchButton);
+            var tempTextView = FindViewById<TextView>(Resource.Id.tempTextView);
+            var weatherImage = FindViewById<ImageView>(Resource.Id.weatherImage);
+
+            searchButton.Click += async delegate
+            {
+                var data = await dataService.GetCityWeather(cityEditText.Text);
+                tempTextView.Text = $"{data.main.temp.ToString()} C";
+
+                var bm = await dataService.GetImageFromUrl($"https://openweathermap.org/img/wn/{data.weather[0].icon}@2x.png");
+                var bitmap = await BitmapFactory.DecodeByteArrayAsync(bm, 0, bm.Length);
+                weatherImage.SetImageBitmap(bitmap);
+            };
+
 
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
