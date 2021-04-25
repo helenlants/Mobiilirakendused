@@ -8,14 +8,15 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal">
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px"
         android:id="@+id/cityTextView" />
     <Button
         android:text="Search"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
+        android:textSize="25dp"
         android:layout_height="wrap_content"
         android:id="@+id/searchButton" />
     <ImageView
@@ -24,10 +25,25 @@
         android:layout_height="100dp" 
         android:id="@+id/weatherImage" />
     <TextView
-        android:text="10"
+        android:text=""
+        android:textSize="60dp"
+        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:gravity="center"
         android:id="@+id/tempTextView" />
+    <TextView
+        android:text=""
+        android:layout_width="300dp"
+        android:textSize="20dp"
+        android:layout_height="50dp"
+        android:id="@+id/hum_windTextView" />
+    <ListView
+
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listView1" />
 </LinearLayout>

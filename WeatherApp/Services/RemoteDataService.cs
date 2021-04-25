@@ -26,6 +26,15 @@ namespace WeatherApp.Services
             var data = JsonConvert.DeserializeObject<WeatherInfo>(response);
             return data;
         }
+        public async Task<FiveDaysData> GetCityfiveday(string city)
+        {
+            var client = new HttpClient();
+            var responsefive = await client.GetStringAsync($"https://api.openweathermap.org/data/2.5/forecast?q={city}&units=metric&appid={apiKey}");
+            var fivedata = JsonConvert.DeserializeObject<FiveDaysData>(responsefive);
+
+
+            return fivedata;
+        }
         public async Task<byte[]> GetImageFromUrl(string url)
         {
             using (var client = new HttpClient())
